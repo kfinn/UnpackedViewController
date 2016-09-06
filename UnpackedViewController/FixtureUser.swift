@@ -7,9 +7,7 @@
 //
 
 import Foundation
-
-
-private let kOneDayAgo: NSTimeInterval = -60*60*24
+import SwiftDate
 
 let FixtureUser = [
     "id": 1,
@@ -19,13 +17,13 @@ let FixtureUser = [
         "accounts": [[
             "id": 1,
             "name": "Traditional 401k",
-            "updatedAt": NSDate(timeIntervalSinceNow: kOneDayAgo),
+            "updatedAt": 1.days.ago,
             "balanceCents": 25836113
             ],
             [
                 "id": 2,
                 "name": "Roth 401k",
-                "updatedAt": NSDate(timeIntervalSinceNow: 2 * kOneDayAgo),
+                "updatedAt": 2.days.ago,
                 "balanceCents": 458640
             ]]
         ],
@@ -35,7 +33,7 @@ let FixtureUser = [
             "accounts": [[
                 "id": 3,
                 "name": "Roth IRA",
-                "updatedAt": NSDate(timeIntervalSinceNow: 3 * kOneDayAgo),
+                "updatedAt": 3.days.ago,
                 "balanceCents": 756345
                 ]]
         ]

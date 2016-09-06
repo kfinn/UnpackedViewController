@@ -16,8 +16,6 @@ class DetailCell<Item>: UITableViewCell {
                 titleLabel.text = dataSource.title
                 valueLabel.text = dataSource.value
             }
-
-            setNeedsUpdateConstraints()
         }
     }
     

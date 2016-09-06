@@ -36,8 +36,8 @@ class SummaryCell: UITableViewCell {
         }
     }
     
-    lazy var totalBalanceValueLabel = UILabel()
-    lazy var subtitleLabel = UILabel()
+    let totalBalanceValueLabel = UILabel()
+    let subtitleLabel = UILabel()
     
     lazy var button: UIButton = {
         let button = UIButton()

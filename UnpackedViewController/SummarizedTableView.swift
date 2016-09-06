@@ -44,10 +44,6 @@ class SummarizedTableView<Item, Delegate: SummarizedTableViewDelegate where Item
         setNeedsUpdateConstraints()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func updateConstraints() {
         constrain(tableView) { $0.edges == $0.superview!.edges }
         super.updateConstraints();
@@ -57,16 +53,16 @@ class SummarizedTableView<Item, Delegate: SummarizedTableViewDelegate where Item
         tableView.reloadData()
     }
     
-    func dataSourceSection(section: Int) -> Int {
-        return section - 1
-    }
-    
-    func dataSourceIndexPath(indexPath: NSIndexPath) -> NSIndexPath {
-        return NSIndexPath(forItem: indexPath.item, inSection: dataSourceSection(indexPath.section))
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? 1 : self.dataSource.numberOfRowsInSection(dataSourceSection(section))
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return dataSource.numberOfSections + 1
+    }
+    
+    func dataSourceSection(section: Int) -> Int {
+        return section - 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -82,8 +78,8 @@ class SummarizedTableView<Item, Delegate: SummarizedTableViewDelegate where Item
         return cell
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return dataSource.numberOfSections + 1
+    func dataSourceIndexPath(indexPath: NSIndexPath) -> NSIndexPath {
+        return NSIndexPath(forItem: indexPath.item, inSection: dataSourceSection(indexPath.section))
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -105,5 +101,9 @@ class SummarizedTableView<Item, Delegate: SummarizedTableViewDelegate where Item
     
     func summaryCellDidPressButton(summaryCell: SummaryCell) {
         self.delegate?.summarizedTableViewDidSelectSummaryAction()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

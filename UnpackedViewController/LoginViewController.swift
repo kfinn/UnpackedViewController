@@ -11,6 +11,14 @@ import PromiseKit
 import Cartography
 
 class LoginViewController: UIViewController {
+    lazy var accountButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Monolithic account details", forState: .Normal)
+        button.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        button.addTarget(self, action: #selector(LoginViewController.accountDetailsPressed), forControlEvents: .TouchUpInside)
+        return button
+    }()
+    
     lazy var browseButton: UIButton = {
         let button = UIButton()
         button.setTitle("Browse Accounts", forState: .Normal)
@@ -27,14 +35,6 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    lazy var accountButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Monolithic account details", forState: .Normal)
-        button.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        button.addTarget(self, action: #selector(LoginViewController.accountDetailsPressed), forControlEvents: .TouchUpInside)
-        return button
-    }()
-    
     lazy var activityIndicatorView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         view.backgroundColor = UIColor(white:0, alpha:0.8)
@@ -44,27 +44,28 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
+        view.addSubview(accountButton)
         view.addSubview(browseButton)
         view.addSubview(selectButton)
-        view.addSubview(accountButton)
         view.addSubview(activityIndicatorView)
         updateViewConstraints()
     }
     
     override func updateViewConstraints() {
-        constrain(browseButton, selectButton, accountButton, activityIndicatorView) {
-            browseButton, selectButton, accountButton, activityIndicatorView in
-            browseButton.top == browseButton.superview!.centerY - 100
+        constrain(accountButton, browseButton, selectButton, activityIndicatorView) {
+            accountButton, browseButton, selectButton, activityIndicatorView in
+            
+            accountButton.top == accountButton.superview!.centerY - 100
+            accountButton.left == accountButton.superview!.left
+            accountButton.right == accountButton.superview!.right
+            
+            browseButton.top == accountButton.bottom + 20
             browseButton.left == browseButton.superview!.left
             browseButton.right == browseButton.superview!.right
             
             selectButton.top == browseButton.bottom + 20
             selectButton.left == selectButton.superview!.left
             selectButton.right == selectButton.superview!.right
-            
-            accountButton.top == selectButton.bottom + 20
-            accountButton.left == accountButton.superview!.left
-            accountButton.right == accountButton.superview!.right
             
             activityIndicatorView.edges == activityIndicatorView.superview!.edges
         }
@@ -83,6 +84,11 @@ class LoginViewController: UIViewController {
         }
     }
     
+    func accountDetailsPressed() {
+        let vc = MonolithicAccountDetailsViewController(account: User.currentUser.brokerages.first!.accounts.first!)
+        self.navigationController!.pushViewController(vc, animated: true)
+    }
+    
     func browsePressed() {
         let flow = BrowseAccountsFlow(user: User.currentUser)
         self.presentViewController(flow.viewController, animated: true, completion: nil)
@@ -91,10 +97,5 @@ class LoginViewController: UIViewController {
     func selectPressed() {
         let flow = SelectAccountFlow(user: User.currentUser)
         self.presentViewController(flow.viewController, animated: true, completion:nil)
-    }
-    
-    func accountDetailsPressed() {
-        let vc = MonolithicAccountDetailsViewController(account: User.currentUser.brokerages.first!.accounts.first!)
-        self.navigationController!.pushViewController(vc, animated: true)
     }
 }
