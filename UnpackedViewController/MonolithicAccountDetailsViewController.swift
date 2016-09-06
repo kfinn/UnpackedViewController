@@ -30,10 +30,6 @@ class MonolithicAccountDetailsViewController: UITableViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,5 +80,9 @@ class MonolithicAccountDetailsViewController: UITableViewController {
         let alert = UIAlertController(title: "Rollover Initiated", message: nil, preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
