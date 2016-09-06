@@ -22,9 +22,12 @@
 		0A919E311D7B6A6C002D67AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A919E301D7B6A6C002D67AB /* Assets.xcassets */; };
 		0A919E341D7B6A6C002D67AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A919E321D7B6A6C002D67AB /* LaunchScreen.storyboard */; };
 		0A919E4A1D7B6A6C002D67AB /* UnpackedViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A919E491D7B6A6C002D67AB /* UnpackedViewControllerUITests.swift */; };
+		0A9228931D7BE88D009C628E /* BrowseAccountsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9228921D7BE88D009C628E /* BrowseAccountsFlow.swift */; };
+		0A9228951D7BEBF7009C628E /* AccountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9228941D7BEBF7009C628E /* AccountDetail.swift */; };
 		0ADA70B91D7B6BC700D87AAC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA70B81D7B6BC700D87AAC /* User.swift */; };
 		0ADA70BC1D7B6BD400D87AAC /* Brokerage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA70BB1D7B6BD400D87AAC /* Brokerage.swift */; };
 		0ADA70BE1D7B6BD900D87AAC /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA70BD1D7B6BD900D87AAC /* Account.swift */; };
+		0AFDACBC1D7BF84B00741FED /* SelectAccountFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDACBB1D7BF84B00741FED /* SelectAccountFlow.swift */; };
 		2A24F78135F5DC92271E8F1C /* Pods_UnpackedViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D8B9A4DD44F2EBB15F161FB /* Pods_UnpackedViewController.framework */; };
 		8C17523DCA4458B39E1C87B4 /* Pods_UnpackedViewControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E561E246A6F6EAD2206E78D /* Pods_UnpackedViewControllerTests.framework */; };
 		CA95A25328F7E382DD901F3E /* Pods_UnpackedViewControllerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 988231622DB16940672E720F /* Pods_UnpackedViewControllerUITests.framework */; };
@@ -70,9 +73,12 @@
 		0A919E491D7B6A6C002D67AB /* UnpackedViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnpackedViewControllerUITests.swift; sourceTree = "<group>"; };
 		0A919E4B1D7B6A6C002D67AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A919E571D7B6AA3002D67AB /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0A9228921D7BE88D009C628E /* BrowseAccountsFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseAccountsFlow.swift; sourceTree = "<group>"; };
+		0A9228941D7BEBF7009C628E /* AccountDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetail.swift; sourceTree = "<group>"; };
 		0ADA70B81D7B6BC700D87AAC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0ADA70BB1D7B6BD400D87AAC /* Brokerage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brokerage.swift; sourceTree = "<group>"; };
 		0ADA70BD1D7B6BD900D87AAC /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		0AFDACBB1D7BF84B00741FED /* SelectAccountFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAccountFlow.swift; sourceTree = "<group>"; };
 		0D8B9A4DD44F2EBB15F161FB /* Pods_UnpackedViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnpackedViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC96355562D608CD0DCC91F /* Pods-UnpackedViewControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnpackedViewControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnpackedViewControllerTests/Pods-UnpackedViewControllerTests.release.xcconfig"; sourceTree = "<group>"; };
 		793408DEA22AA95B7AB5EBE2 /* Pods-UnpackedViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnpackedViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnpackedViewController/Pods-UnpackedViewController.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,13 +163,10 @@
 		0A919E281D7B6A6C002D67AB /* UnpackedViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0A919E291D7B6A6C002D67AB /* AppDelegate.swift */,
-				0ADA70BA1D7B6BCB00D87AAC /* Models */,
-				0A7B1B671D7B7E2300A3FD16 /* View Controllers */,
-				0A7B1B6E1D7B8A7E00A3FD16 /* Views */,
+				0A9228911D7BE845009C628E /* Source */,
+				0A919E351D7B6A6C002D67AB /* Info.plist */,
 				0A919E301D7B6A6C002D67AB /* Assets.xcassets */,
 				0A919E321D7B6A6C002D67AB /* LaunchScreen.storyboard */,
-				0A919E351D7B6A6C002D67AB /* Info.plist */,
 			);
 			path = UnpackedViewController;
 			sourceTree = "<group>";
@@ -186,10 +189,32 @@
 			path = UnpackedViewControllerUITests;
 			sourceTree = "<group>";
 		};
+		0A92288F1D7BE809009C628E /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				0A9228921D7BE88D009C628E /* BrowseAccountsFlow.swift */,
+				0AFDACBB1D7BF84B00741FED /* SelectAccountFlow.swift */,
+			);
+			name = Flows;
+			sourceTree = "<group>";
+		};
+		0A9228911D7BE845009C628E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0A919E291D7B6A6C002D67AB /* AppDelegate.swift */,
+				0A92288F1D7BE809009C628E /* Flows */,
+				0ADA70BA1D7B6BCB00D87AAC /* Models */,
+				0A7B1B671D7B7E2300A3FD16 /* View Controllers */,
+				0A7B1B6E1D7B8A7E00A3FD16 /* Views */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
 		0ADA70BA1D7B6BCB00D87AAC /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				0ADA70BD1D7B6BD900D87AAC /* Account.swift */,
+				0A9228941D7BEBF7009C628E /* AccountDetail.swift */,
 				0ADA70BB1D7B6BD400D87AAC /* Brokerage.swift */,
 				0A7B1B811D7B954A00A3FD16 /* DetailCellDataSource.swift */,
 				0A7B1B681D7B7E7900A3FD16 /* FixtureUser.swift */,
@@ -491,13 +516,16 @@
 				0A7B1B691D7B7E7900A3FD16 /* FixtureUser.swift in Sources */,
 				0A7B1B821D7B954A00A3FD16 /* DetailCellDataSource.swift in Sources */,
 				0A919E2C1D7B6A6C002D67AB /* LoginViewController.swift in Sources */,
+				0A9228931D7BE88D009C628E /* BrowseAccountsFlow.swift in Sources */,
 				0A919E2A1D7B6A6C002D67AB /* AppDelegate.swift in Sources */,
+				0AFDACBC1D7BF84B00741FED /* SelectAccountFlow.swift in Sources */,
 				0A7B1B741D7B8B4500A3FD16 /* SummarizedTableViewController.swift in Sources */,
 				0A7B1B761D7B8ED700A3FD16 /* SummarizedTableViewDataSource.swift in Sources */,
 				0A7B1B791D7B938A00A3FD16 /* SummarizedTableViewSection.swift in Sources */,
 				0ADA70B91D7B6BC700D87AAC /* User.swift in Sources */,
 				0A7B1B851D7B98F300A3FD16 /* SummaryCellDataSource.swift in Sources */,
 				0A7B1B8C1D7BCC1500A3FD16 /* DetailCell.swift in Sources */,
+				0A9228951D7BEBF7009C628E /* AccountDetail.swift in Sources */,
 				0A7B1B881D7B9E8500A3FD16 /* SummaryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

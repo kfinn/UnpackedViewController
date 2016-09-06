@@ -13,8 +13,13 @@ struct SummarizedTableViewSection<Item> {
     let title: String?
     
     static func accountsSectionFromBrokerage(brokerage: Brokerage) -> SummarizedTableViewSection<Account> {
-        let rows: [DetailCellDataSource<Account>] = brokerage.accounts.map(DetailCellDataSource<Account>.fromAccount)
+        let rows = brokerage.accounts.map(DetailCellDataSource<Account>.fromAccount)
         return SummarizedTableViewSection<Account>(rows: rows, title: brokerage.name)
+    }
+    
+    static func accountDetailsSectionFromAccount(account: Account) -> SummarizedTableViewSection<AccountDetail> {
+        let rows = AccountDetail.allDetailsForAccount(account).map(DetailCellDataSource<AccountDetail>.fromAccountDetail)
+        return SummarizedTableViewSection<AccountDetail>(rows: rows, title: nil)
     }
     
     var numberOfRows: Int {

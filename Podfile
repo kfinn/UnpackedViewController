@@ -8,7 +8,8 @@ target 'UnpackedViewController' do
     pod 'RealmSwift', '~> 1.0'
     pod 'PromiseKit', '~> 3.5'
     pod 'Money', '~> 1.7'
-    
+    pod 'SwiftDate', '~> 3.0'
+
     target 'UnpackedViewControllerTests' do
         inherit! :search_paths
         # Pods for testing

@@ -12,9 +12,21 @@ import Cartography
 let kSummaryCellReuseIdentifier = "kSummaryCellReuseIdentifier"
 let kDetailCellReuseIdentifier = "kDetailCellReuseIdentifier"
 
-class SummarizedTableView<Item>: UIView, UITableViewDataSource, UITableViewDelegate {
+protocol SummarizedTableViewDelegate: class {
+    associatedtype DelegateItem
+    func summarizedTableViewDidSelectItem(item: DelegateItem)
+    func summarizedTableViewDidSelectSummaryAction()
+}
+
+extension SummarizedTableViewDelegate {
+    func summarizedTableViewDidSelectSummaryAction() {}
+}
+
+class SummarizedTableView<Item, Delegate: SummarizedTableViewDelegate where Item == Delegate.DelegateItem>: UIView, UITableViewDataSource, UITableViewDelegate, SummaryCellDelegate {
     
     let dataSource: SummarizedTableViewDataSource<Item>
+    weak var delegate: Delegate?
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.registerClass(SummaryCell.self, forCellReuseIdentifier:kSummaryCellReuseIdentifier)
@@ -37,12 +49,7 @@ class SummarizedTableView<Item>: UIView, UITableViewDataSource, UITableViewDeleg
     }
     
     override func updateConstraints() {
-        constrain(tableView) {
-            tableView in
-            tableView.center == tableView.superview!.center
-            tableView.size == tableView.superview!.size
-        }
-        
+        constrain(tableView) { $0.edges == $0.superview!.edges }
         super.updateConstraints();
     }
     
@@ -66,6 +73,7 @@ class SummarizedTableView<Item>: UIView, UITableViewDataSource, UITableViewDeleg
         if (indexPath.section == 0) {
             let cell = tableView.dequeueReusableCellWithIdentifier(kSummaryCellReuseIdentifier, forIndexPath:indexPath) as! SummaryCell
             cell.dataSource = self.dataSource.summaryCellDataSource
+            cell.delegate = self
             return cell
         }
         
@@ -90,6 +98,12 @@ class SummarizedTableView<Item>: UIView, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        let item = self.dataSource.dataSourceForCellAtIndexPath(dataSourceIndexPath(indexPath)).item
+        self.delegate?.summarizedTableViewDidSelectItem(item)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func summaryCellDidPressButton(summaryCell: SummaryCell) {
+        self.delegate?.summarizedTableViewDidSelectSummaryAction()
     }
 }

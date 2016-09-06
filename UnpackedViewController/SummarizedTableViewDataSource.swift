@@ -12,10 +12,22 @@ struct SummarizedTableViewDataSource<Item> {
     let sections: [SummarizedTableViewSection<Item>]
     let summaryCellDataSource: SummaryCellDataSource
     
-    static func accountsDataSourceFromUser(user: User) -> SummarizedTableViewDataSource<Account> {
+    static func browseAccountsDataSourceFromUser(user: User) -> SummarizedTableViewDataSource<Account> {
         let sections = user.brokerages.map(SummarizedTableViewSection<Account>.accountsSectionFromBrokerage)
-        let summaryCellDataSource = SummaryCellDataSource.fromUser(user)
+        let summaryCellDataSource = SummaryCellDataSource.browseSummaryFromUser(user)
         return SummarizedTableViewDataSource<Account>(sections: sections, summaryCellDataSource: summaryCellDataSource)
+    }
+    
+    static func rolloverAccountDataSourceFromUser(user: User) -> SummarizedTableViewDataSource<Account> {
+        let sections = user.brokerages.map(SummarizedTableViewSection<Account>.accountsSectionFromBrokerage)
+        let summaryCellDataSource = SummaryCellDataSource.rolloverSummaryFromUser(user)
+        return SummarizedTableViewDataSource<Account>(sections: sections, summaryCellDataSource: summaryCellDataSource)
+    }
+    
+    static func accountDetailsDataSourceFromAccount(account: Account) -> SummarizedTableViewDataSource<AccountDetail> {
+        let sections = [SummarizedTableViewSection<AccountDetail>.accountDetailsSectionFromAccount(account)]
+        let summaryCellDataSource = SummaryCellDataSource.fromAccount(account)
+        return SummarizedTableViewDataSource<AccountDetail>(sections: sections, summaryCellDataSource: summaryCellDataSource)
     }
     
     var numberOfSections: Int {

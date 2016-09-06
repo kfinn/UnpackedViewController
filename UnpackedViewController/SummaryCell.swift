@@ -9,24 +9,58 @@
 import UIKit
 import Cartography
 
+protocol SummaryCellDelegate: class {
+    func summaryCellDidPressButton(summaryCell: SummaryCell)
+}
+
 class SummaryCell: UITableViewCell {
+    
+    weak var delegate: SummaryCellDelegate?
     
     var dataSource: SummaryCellDataSource? {
         didSet {
             if let dataSource = dataSource {
                 totalBalanceValueLabel.text = "\(dataSource.totalBalance) total"
-                subtitleLabel.text = dataSource.subtitle
+                
+                switch dataSource.details {
+                case let .Subtitle(text):
+                    button.hidden = true
+                    subtitleLabel.hidden = false
+                    subtitleLabel.text = text
+                case let .Button(title):
+                    button.hidden = false
+                    button.setTitle(title, forState: .Normal)
+                    subtitleLabel.hidden = true
+                }
             }
         }
     }
     
-    let totalBalanceValueLabel = UILabel()
-    let subtitleLabel = UILabel()
+    lazy var totalBalanceValueLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.whiteColor()
+        return label
+    }()
+    
+    lazy var subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.whiteColor()
+        return label;
+    }()
+    
+    lazy var button: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(buttonPressed), forControlEvents: .TouchUpInside)
+        button.setTitleColor(UIColor.cyanColor(), forState: .Normal)
+        return button
+    }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = UIColor.darkGrayColor()
         contentView.addSubview(totalBalanceValueLabel)
         contentView.addSubview(subtitleLabel)
+        contentView.addSubview(button)
         setNeedsUpdateConstraints()
     }
     
@@ -35,8 +69,8 @@ class SummaryCell: UITableViewCell {
     }
     
     override func updateConstraints() {
-        constrain(totalBalanceValueLabel, subtitleLabel) {
-            totalBalanceValueLabel, subtitleLabel in
+        constrain(totalBalanceValueLabel, subtitleLabel, button) {
+            totalBalanceValueLabel, subtitleLabel, button in
             
             totalBalanceValueLabel.centerX == totalBalanceValueLabel.superview!.centerX
             totalBalanceValueLabel.width <= totalBalanceValueLabel.superview!.width
@@ -46,8 +80,14 @@ class SummaryCell: UITableViewCell {
             subtitleLabel.width <= subtitleLabel.superview!.width
             subtitleLabel.top == totalBalanceValueLabel.bottom + 10
             subtitleLabel.bottom == subtitleLabel.superview!.bottom - 20
+            
+            button.edges == subtitleLabel.edges
         }
         
         super.updateConstraints()
+    }
+    
+    func buttonPressed() {
+        delegate?.summaryCellDidPressButton(self)
     }
 }

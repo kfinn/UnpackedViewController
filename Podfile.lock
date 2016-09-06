@@ -26,6 +26,7 @@ PODS:
   - Realm/Headers (1.0.2)
   - RealmSwift (1.0.2):
     - Realm (= 1.0.2)
+  - SwiftDate (3.0.8)
   - ValueCoding (1.4.0)
 
 DEPENDENCIES:
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - Money (~> 1.7)
   - PromiseKit (~> 3.5)
   - RealmSwift (~> 1.0)
+  - SwiftDate (~> 3.0)
 
 SPEC CHECKSUMS:
   Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
@@ -41,8 +43,9 @@ SPEC CHECKSUMS:
   PromiseKit: 99ea973444a4bff6c38ffb97fa1bb175e619bcf0
   Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
   RealmSwift: 82f3ac5e24530143dddfde2033acc0d308f27d96
+  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
   ValueCoding: 4b367356db01b7ecb4203a24620ca4423385cd33
 
-PODFILE CHECKSUM: 35395a07b1770389b2a73ceba22ca6028bde134f
+PODFILE CHECKSUM: 449bc23bb99dd438726a4e589dd31185fd1b2417
 
 COCOAPODS: 1.0.1
