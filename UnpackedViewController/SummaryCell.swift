@@ -36,28 +36,18 @@ class SummaryCell: UITableViewCell {
         }
     }
     
-    lazy var totalBalanceValueLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.whiteColor()
-        return label
-    }()
-    
-    lazy var subtitleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.whiteColor()
-        return label;
-    }()
+    lazy var totalBalanceValueLabel = UILabel()
+    lazy var subtitleLabel = UILabel()
     
     lazy var button: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(buttonPressed), forControlEvents: .TouchUpInside)
-        button.setTitleColor(UIColor.cyanColor(), forState: .Normal)
+        button.setTitleColor(UIColor.blueColor(), forState: .Normal)
         return button
     }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = UIColor.darkGrayColor()
         contentView.addSubview(totalBalanceValueLabel)
         contentView.addSubview(subtitleLabel)
         contentView.addSubview(button)

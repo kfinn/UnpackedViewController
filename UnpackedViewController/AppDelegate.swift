@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow? = {
         let window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window.rootViewController = LoginViewController()
+        window.rootViewController = UINavigationController(rootViewController: LoginViewController())
         return window
     }()
     

@@ -28,6 +28,7 @@ class DetailCell<Item>: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(titleLabel)
         contentView.addSubview(valueLabel)
+        setNeedsUpdateConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {

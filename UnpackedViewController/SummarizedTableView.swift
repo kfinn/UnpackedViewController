@@ -9,8 +9,8 @@
 import UIKit
 import Cartography
 
-let kSummaryCellReuseIdentifier = "kSummaryCellReuseIdentifier"
-let kDetailCellReuseIdentifier = "kDetailCellReuseIdentifier"
+private let kSummaryCellReuseIdentifier = "kSummaryCellReuseIdentifier"
+private let kDetailCellReuseIdentifier = "kDetailCellReuseIdentifier"
 
 protocol SummarizedTableViewDelegate: class {
     associatedtype DelegateItem

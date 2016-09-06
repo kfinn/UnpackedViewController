@@ -28,6 +28,7 @@
 		0ADA70BC1D7B6BD400D87AAC /* Brokerage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA70BB1D7B6BD400D87AAC /* Brokerage.swift */; };
 		0ADA70BE1D7B6BD900D87AAC /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADA70BD1D7B6BD900D87AAC /* Account.swift */; };
 		0AFDACBC1D7BF84B00741FED /* SelectAccountFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDACBB1D7BF84B00741FED /* SelectAccountFlow.swift */; };
+		0AFDACC01D7E72AC00741FED /* MonolithicAccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDACBF1D7E72AC00741FED /* MonolithicAccountDetailsViewController.swift */; };
 		2A24F78135F5DC92271E8F1C /* Pods_UnpackedViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D8B9A4DD44F2EBB15F161FB /* Pods_UnpackedViewController.framework */; };
 		8C17523DCA4458B39E1C87B4 /* Pods_UnpackedViewControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E561E246A6F6EAD2206E78D /* Pods_UnpackedViewControllerTests.framework */; };
 		CA95A25328F7E382DD901F3E /* Pods_UnpackedViewControllerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 988231622DB16940672E720F /* Pods_UnpackedViewControllerUITests.framework */; };
@@ -79,6 +80,7 @@
 		0ADA70BB1D7B6BD400D87AAC /* Brokerage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brokerage.swift; sourceTree = "<group>"; };
 		0ADA70BD1D7B6BD900D87AAC /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		0AFDACBB1D7BF84B00741FED /* SelectAccountFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAccountFlow.swift; sourceTree = "<group>"; };
+		0AFDACBF1D7E72AC00741FED /* MonolithicAccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonolithicAccountDetailsViewController.swift; sourceTree = "<group>"; };
 		0D8B9A4DD44F2EBB15F161FB /* Pods_UnpackedViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnpackedViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC96355562D608CD0DCC91F /* Pods-UnpackedViewControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnpackedViewControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnpackedViewControllerTests/Pods-UnpackedViewControllerTests.release.xcconfig"; sourceTree = "<group>"; };
 		793408DEA22AA95B7AB5EBE2 /* Pods-UnpackedViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnpackedViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnpackedViewController/Pods-UnpackedViewController.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				0A919E2B1D7B6A6C002D67AB /* LoginViewController.swift */,
 				0A7B1B731D7B8B4500A3FD16 /* SummarizedTableViewController.swift */,
+				0AFDACBF1D7E72AC00741FED /* MonolithicAccountDetailsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				0A7B1B821D7B954A00A3FD16 /* DetailCellDataSource.swift in Sources */,
 				0A919E2C1D7B6A6C002D67AB /* LoginViewController.swift in Sources */,
 				0A9228931D7BE88D009C628E /* BrowseAccountsFlow.swift in Sources */,
+				0AFDACC01D7E72AC00741FED /* MonolithicAccountDetailsViewController.swift in Sources */,
 				0A919E2A1D7B6A6C002D67AB /* AppDelegate.swift in Sources */,
 				0AFDACBC1D7BF84B00741FED /* SelectAccountFlow.swift in Sources */,
 				0A7B1B741D7B8B4500A3FD16 /* SummarizedTableViewController.swift in Sources */,
