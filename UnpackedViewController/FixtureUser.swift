@@ -35,7 +35,7 @@ let FixtureUser = [
                 "name": "Roth IRA",
                 "updatedAt": 3.days.ago,
                 "balanceCents": 756345
-                ]]
+            ]]
         ]
     ]
 ]

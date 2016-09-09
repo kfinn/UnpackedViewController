@@ -19,24 +19,24 @@ class SummaryCell: UITableViewCell {
     
     var dataSource: SummaryCellDataSource? {
         didSet {
-            if let dataSource = dataSource {
-                totalBalanceValueLabel.text = "\(dataSource.totalBalance) total"
-                
-                switch dataSource.details {
-                case let .Subtitle(text):
-                    button.hidden = true
-                    subtitleLabel.hidden = false
-                    subtitleLabel.text = text
-                case let .Button(title):
-                    button.hidden = false
-                    button.setTitle(title, forState: .Normal)
-                    subtitleLabel.hidden = true
-                }
+            guard let dataSource = dataSource
+                else { return }
+            totalBalanceLabel.text = "\(dataSource.totalBalance) total"
+
+            switch dataSource.details {
+            case let .Subtitle(text):
+                button.hidden = true
+                subtitleLabel.hidden = false
+                subtitleLabel.text = text
+            case let .Button(title):
+                button.hidden = false
+                button.setTitle(title, forState: .Normal)
+                subtitleLabel.hidden = true
             }
         }
     }
     
-    let totalBalanceValueLabel = UILabel()
+    let totalBalanceLabel = UILabel.totalBalanceLabel()
     let subtitleLabel = UILabel()
     
     lazy var button: UIButton = {
@@ -48,7 +48,7 @@ class SummaryCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(totalBalanceValueLabel)
+        contentView.addSubview(totalBalanceLabel)
         contentView.addSubview(subtitleLabel)
         contentView.addSubview(button)
         setNeedsUpdateConstraints()
@@ -59,7 +59,7 @@ class SummaryCell: UITableViewCell {
     }
     
     override func updateConstraints() {
-        constrain(totalBalanceValueLabel, subtitleLabel, button) {
+        constrain(totalBalanceLabel, subtitleLabel, button) {
             totalBalanceValueLabel, subtitleLabel, button in
             
             totalBalanceValueLabel.centerX == totalBalanceValueLabel.superview!.centerX

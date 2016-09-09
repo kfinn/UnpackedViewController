@@ -14,7 +14,9 @@ struct DetailCellDataSource<Item> {
     let item: Item
     
     static func fromAccount(account: Account) -> DetailCellDataSource<Account> {
-        return DetailCellDataSource<Account>(title: account.name, value: "\(account.balance)", item: account)
+        return DetailCellDataSource<Account>(title: account.name,
+                                             value: "\(account.balance)",
+                                             item: account)
     }
     
     static func fromAccountDetail(accountDetail: AccountDetail) -> DetailCellDataSource<AccountDetail> {

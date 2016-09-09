@@ -23,6 +23,11 @@ class User: Object {
         return brokerages.reduce(0) { count, b in count + b.accountsCount }
     }
     
+    var displayAccountsCount: String {
+        let pluralizedAccount = accountsCount == 1 ? "account" : "accounts"
+        return "\(accountsCount) \(pluralizedAccount)"
+    }
+    
     override class func primaryKey() -> String? { return "id" }
     
     class func update() -> Promise<Void> {

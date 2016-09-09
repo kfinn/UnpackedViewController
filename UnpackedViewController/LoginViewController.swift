@@ -90,6 +90,8 @@ class LoginViewController: UIViewController {
     }
     
     func browsePressed() {
+//        let vc = SinglePurposeBrowseViewController(user: User.currentUser)
+//        self.presentViewController(UINavigationController(rootViewController:vc), animated: true, completion: nil)
         let flow = BrowseAccountsFlow(user: User.currentUser)
         self.presentViewController(flow.viewController, animated: true, completion: nil)
     }

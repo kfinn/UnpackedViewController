@@ -12,9 +12,12 @@ struct SummarizedTableViewSection<Item> {
     let rows: [DetailCellDataSource<Item>]
     let title: String?
     
-    static func accountsSectionFromBrokerage(brokerage: Brokerage) -> SummarizedTableViewSection<Account> {
-        let rows = brokerage.accounts.map(DetailCellDataSource<Account>.fromAccount)
-        return SummarizedTableViewSection<Account>(rows: rows, title: brokerage.name)
+    static func accountsSectionFromBrokerage(brokerage: Brokerage)
+        -> SummarizedTableViewSection<Account> {
+        let rows = brokerage.accounts.map(
+            DetailCellDataSource<Account>.fromAccount)
+        return SummarizedTableViewSection<Account>(rows: rows,
+                                          title: brokerage.name)
     }
     
     static func accountDetailsSectionFromAccount(account: Account) -> SummarizedTableViewSection<AccountDetail> {
@@ -26,7 +29,8 @@ struct SummarizedTableViewSection<Item> {
         return rows.count
     }
 
-    func dataSourceForCellAtRow(row: Int) -> DetailCellDataSource<Item> {
+    func dataSourceForCellAtRow(row: Int)
+        -> DetailCellDataSource<Item> {
         return rows[row]
     }
 }

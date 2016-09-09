@@ -12,10 +12,9 @@ import Cartography
 class DetailCell<Item>: UITableViewCell {
     var dataSource: DetailCellDataSource<Item>? {
         didSet {
-            if let dataSource = dataSource {
-                titleLabel.text = dataSource.title
-                valueLabel.text = dataSource.value
-            }
+            guard let dataSource = dataSource else { return }
+            titleLabel.text = dataSource.title
+            valueLabel.text = dataSource.value
         }
     }
     
