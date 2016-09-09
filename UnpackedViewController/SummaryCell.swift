@@ -54,10 +54,6 @@ class SummaryCell: UITableViewCell {
         setNeedsUpdateConstraints()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func updateConstraints() {
         constrain(totalBalanceLabel, subtitleLabel, button) {
             totalBalanceValueLabel, subtitleLabel, button in
@@ -79,5 +75,9 @@ class SummaryCell: UITableViewCell {
     
     func buttonPressed() {
         delegate?.summaryCellDidPressButton(self)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

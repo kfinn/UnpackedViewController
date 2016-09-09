@@ -28,10 +28,6 @@ class DetailCell<Item>: UITableViewCell {
         setNeedsUpdateConstraints()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func updateConstraints() {
         constrain(titleLabel, valueLabel) {
             titleLabel, valueLabel in
@@ -46,5 +42,9 @@ class DetailCell<Item>: UITableViewCell {
             valueLabel.bottom == valueLabel.superview!.bottom - 15
         }
         super.updateConstraints()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
